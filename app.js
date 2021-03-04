@@ -9,6 +9,7 @@ var adminRouter = require('./routes/admin');
 const { dirname } = require('path');
 var hbs =require('express-handlebars')//hbs setup cheyyunnnad first we need to install handlebars
 var app = express();
+var fileUpload =require('express-fileupload')// ith use cheyyunnnath file upload cheyyyan vendi aanu
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(fileUpload())
 app.use('/', userRouter);
 app.use('/admin', adminRouter);
 
